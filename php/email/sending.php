@@ -17,8 +17,8 @@ $body = $_GET['body'];
 try{  
 	echo $body;
   
-          $subject = "ديوانية خريجي جامعة البترول";
-          $headers = "From: TUD@tud.org\n";
+          $subject = "email subject";
+          $headers = "From: man-r@man-r.me\n";
   
   
   if (mail($to, $subject, $body, $headers)) {

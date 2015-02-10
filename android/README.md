@@ -16,3 +16,5 @@ example
 <code>./android create project --target 1 --name TestApp --path /home/myself/android/myapp --activity MyMainActivity --package com.example.testapp</code>
 
 <a>http://ncona.com/2013/02/introduction-to-android-development-building-an-application-without-an-ide/</a>
+
+<a>http://developer.android.com/tools/projects/projects-cmdline.html</a>

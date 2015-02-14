@@ -7,6 +7,8 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.content.Context;
+import android.view.MotionEvent;
+import android.widget.Toast;
 
 /** A basic Camera preview class */
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
@@ -67,4 +69,28 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             //Log.d(TAG, "Error starting camera preview: " + e.getMessage());
         }
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int eventaction = event.getAction();
+
+        switch (eventaction) {
+            case MotionEvent.ACTION_DOWN:
+                Log.d("MyApp", " finger touches the screen");
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                // finger moves on the screen
+                Log.d("MyApp", "finger moves on the screen");
+                break;
+
+            case MotionEvent.ACTION_UP:   
+                // finger leaves the screen
+                Log.d("MyApp", "finger leaves the screen");
+                break;
+        }
+
+        return true;
+    }
+
 }

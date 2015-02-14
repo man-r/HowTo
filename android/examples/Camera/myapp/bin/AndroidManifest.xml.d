@@ -1,2 +1,2 @@
-/home/manar/gitHub/myapp/bin/AndroidManifest.xml : \
-/home/manar/gitHub/myapp/AndroidManifest.xml \
+/home/manar/gitHub/HowTo/android/examples/Camera/myapp/bin/AndroidManifest.xml : \
+/home/manar/gitHub/HowTo/android/examples/Camera/myapp/AndroidManifest.xml \

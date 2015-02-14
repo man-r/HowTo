@@ -1,3 +1,3 @@
-/home/manar/gitHub/myapp/bin/TestApp-debug-unaligned.apk : \
-/home/manar/gitHub/myapp/bin/TestApp.ap_ \
-/home/manar/gitHub/myapp/bin/classes.dex \
+/home/manar/gitHub/HowTo/android/examples/Camera/myapp/bin/TestApp-debug-unaligned.apk : \
+/home/manar/gitHub/HowTo/android/examples/Camera/myapp/bin/TestApp.ap_ \
+/home/manar/gitHub/HowTo/android/examples/Camera/myapp/bin/classes.dex \

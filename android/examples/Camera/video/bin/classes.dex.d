@@ -1,16 +1,27 @@
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes.dex : \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/R$id.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraActivity.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraActivity$3.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/Manifest$permission.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/Manifest.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/DemoActivity$SocketListener.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/DemoActivity$NotificationRunnable.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraPreview$2.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraPreview$1.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraPreview$1$1.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/MyMainActivity$1.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraActivity$1.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/R$layout.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/DemoActivity$1.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/R$string.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/MyMainActivity$2.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/MyMainActivity.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraPreview.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/DemoActivity.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraPreview$2$1.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/CameraActivity$2.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/R.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/R$attr.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/BuildConfig.class \
 /home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/R$drawable.class \
+/home/manar/gitHub/HowTo/android/examples/Camera/video/bin/classes/com/example/testapp/LocalServerActivity.class \

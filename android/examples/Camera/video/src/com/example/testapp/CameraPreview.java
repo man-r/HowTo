@@ -42,6 +42,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public CameraPreview(Context context, Camera camera) {
         super(context);
         mCamera = camera;
+        mCamera.setDisplayOrientation(90);
 
         // Install a SurfaceHolder.Callback so we get notified when the
         // underlying surface is created and destroyed.
@@ -56,24 +57,24 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         try {
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
-            Thread thread = new Thread(new Runnable() {
-                public void run() {
-                    mCamera.setPreviewCallback(new PreviewCallback() {
-                        public void onPreviewFrame(byte[] data, Camera camera){
-                            if (isRecording) {
+            // Thread thread = new Thread(new Runnable() {
+            //     public void run() {
+            //         mCamera.setPreviewCallback(new PreviewCallback() {
+            //             public void onPreviewFrame(byte[] data, Camera camera){
+            //                 if (isRecording) {
                                 
-                                Parameters parameters = camera.getParameters();
-                                int imageFormat = parameters.getPreviewFormat();
-                                Log.d(TAG,"imageFormat: " + imageFormat);
-                                Log.d(TAG,"1onPreviewFrame called at: " + System.currentTimeMillis());
-                            }
+            //                     Parameters parameters = camera.getParameters();
+            //                     int imageFormat = parameters.getPreviewFormat();
+            //                     Log.d(TAG,"imageFormat: " + imageFormat);
+            //                     Log.d(TAG,"1onPreviewFrame called at: " + System.currentTimeMillis());
+            //                 }
 
                             
-                        }
-                    });
-                }
-            });
-            thread.start();
+            //             }
+            //         });
+            //     }
+            // });
+            // thread.start();
             
         } catch (IOException e) {
             Log.d(TAG, "Error setting camera preview: " + e.getMessage());
@@ -109,43 +110,43 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         try {
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
-            Thread thread = new Thread(new Runnable() {
-                public void run() {
-                    mCamera.setPreviewCallback(new PreviewCallback() {
-                        public void onPreviewFrame(byte[] data, Camera camera){
-                            if (isRecording) {
-                                Size previewSize = camera.getParameters().getPreviewSize(); 
-                                YuvImage yuvimage=new YuvImage(data, ImageFormat.NV21, previewSize.width, previewSize.height, null);
-                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                                yuvimage.compressToJpeg(new Rect(0, 0, previewSize.width, previewSize.height), 80, baos);
-                                byte[] jdata = baos.toByteArray();
+            // Thread thread = new Thread(new Runnable() {
+            //     public void run() {
+            //         mCamera.setPreviewCallback(new PreviewCallback() {
+            //             public void onPreviewFrame(byte[] data, Camera camera){
+            //                 if (isRecording) {
+            //                     Size previewSize = camera.getParameters().getPreviewSize(); 
+            //                     YuvImage yuvimage=new YuvImage(data, ImageFormat.NV21, previewSize.width, previewSize.height, null);
+            //                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            //                     yuvimage.compressToJpeg(new Rect(0, 0, previewSize.width, previewSize.height), 80, baos);
+            //                     byte[] jdata = baos.toByteArray();
 
-                                // Convert to Bitmap
-                                Bitmap bmp = BitmapFactory.decodeByteArray(jdata, 0, jdata.length);
+            //                     // Convert to Bitmap
+            //                     Bitmap bmp = BitmapFactory.decodeByteArray(jdata, 0, jdata.length);
                                 
 
-                                File pictureFile = getOutputMediaFile();
-                                try {
-                                    FileOutputStream fos = new FileOutputStream(pictureFile);
-                                    fos.write(jdata);
-                                    fos.close();
-                                } catch (FileNotFoundException e) {
-                                    //Log.d(TAG, "File not found: " + e.getMessage());
-                                } catch (IOException e) {
-                                    //Log.d(TAG, "Error accessing file: " + e.getMessage());
-                                }
+            //                     File pictureFile = getOutputMediaFile();
+            //                     try {
+            //                         FileOutputStream fos = new FileOutputStream(pictureFile);
+            //                         fos.write(jdata);
+            //                         fos.close();
+            //                     } catch (FileNotFoundException e) {
+            //                         //Log.d(TAG, "File not found: " + e.getMessage());
+            //                     } catch (IOException e) {
+            //                         //Log.d(TAG, "Error accessing file: " + e.getMessage());
+            //                     }
                             
 
-                                Parameters parameters = camera.getParameters();
-                                int imageFormat = parameters.getPreviewFormat();
-                                Log.d(TAG,"imageFormat: " + imageFormat);
-                                Log.d(TAG,"2onPreviewFrame called at: " + System.currentTimeMillis());
-                            }
-                        }
-                    });
-                }
-            });
-            thread.start();
+            //                     Parameters parameters = camera.getParameters();
+            //                     int imageFormat = parameters.getPreviewFormat();
+            //                     Log.d(TAG,"imageFormat: " + imageFormat);
+            //                     Log.d(TAG,"2onPreviewFrame called at: " + System.currentTimeMillis());
+            //                 }
+            //             }
+            //         });
+            //     }
+            // });
+            // thread.start();
         } catch (Exception e){
             Log.d(TAG, "Error starting camera preview: " + e.getMessage());
         }
@@ -157,17 +158,17 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
         switch (eventaction) {
             case MotionEvent.ACTION_DOWN:
-                Log.d("MyApp", " finger touches the screen");
+                Log.d(TAG, " finger touches the screen");
                 break;
 
             case MotionEvent.ACTION_MOVE:
                 // finger moves on the screen
-                Log.d("MyApp", "finger moves on the screen");
+                Log.d(TAG, "finger moves on the screen");
                 break;
 
             case MotionEvent.ACTION_UP:   
                 // finger leaves the screen
-                Log.d("MyApp", "finger leaves the screen");
+                Log.d(TAG, "finger leaves the screen");
                 break;
         }
 
@@ -187,7 +188,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         // Create the storage directory if it does not exist
         if (! mediaStorageDir.exists()){
             if (! mediaStorageDir.mkdirs()){
-                Log.d("MyCameraApp", "failed to create directory");
+                Log.d(TAG, "failed to create directory");
                 return null;
             }
         }

@@ -1,6 +1,7 @@
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 
 public class Aes {
 
@@ -10,15 +11,16 @@ public class Aes {
 
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         //keyGen.init(128);
-
-        SecretKey secKey = keyGen.generateKey();
+        byte raw[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+        SecretKeySpec spec = new SecretKeySpec(raw, "AES");
+        //SecretKey secKey = keyGen.generateKey();
 
         Cipher aesCipher = Cipher.getInstance("AES");
 
 
         byte[] byteText = text.getBytes();
 
-        aesCipher.init(Cipher.ENCRYPT_MODE, secKey);
+        aesCipher.init(Cipher.ENCRYPT_MODE, spec);
         byte[] byteCipherText = aesCipher.doFinal(byteText);
         
         StringBuilder sb = new StringBuilder();

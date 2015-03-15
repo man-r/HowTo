@@ -1,22 +1,34 @@
 var crypto = require('crypto');
+ 
+var AESCrypt = {};
+ 
+AESCrypt.decrypt = function(cryptkey, iv, encryptdata) {
+    encryptdata = new Buffer(encryptdata, 'base64').toString('binary');
+ 
+    var decipher = crypto.createDecipheriv('aes-256-cbc', cryptkey, iv),
+    	decoded = decipher.update(encryptdata, 'binary', 'utf8');
 
-var password = '11111111111111111111111111111111';
-function encrypt(text){
-  var cipher = crypto.createCipher('aes-128-cbc',password)
-  var crypted = cipher.update(text,'utf8','hex')
-  crypted += cipher.final('hex');
-  return crypted;
+    decoded += decipher.final('utf8');
+
+    return decoded;
 }
  
-function decrypt(text){
-  var decipher = crypto.createDecipher('aes-128-cbc', password)
-  var dec = decipher.update(text,'hex','utf8')
-  dec += decipher.final('utf8');
-  return dec;
+AESCrypt.encrypt = function(cryptkey, iv, cleardata) {
+    var encipher = crypto.createCipheriv('aes-256-cbc', cryptkey, iv),
+    	encryptdata = encipher.update(cleardata, 'utf8', 'binary');
+
+	encryptdata += encipher.final('binary');
+    encode_encryptdata = new Buffer(encryptdata, 'binary').toString('base64');
+    
+    return encode_encryptdata;
 }
  
-var encrypted = encrypt("This is some String")
-var decrypted = decrypt(encrypted)
-
-console.log('encrypted :', encrypted);
-console.log('decrypted :', decrypted);
+var cryptkey   = crypto.createHash('sha256').update('Nixnogen').digest(),
+    iv         = 'a2xhcgAAAAAAAAAA',
+    buf        = "Here is some data for the encrypt", // 32 chars
+    enc        = AESCrypt.encrypt(cryptkey, iv, buf);
+var dec        = AESCrypt.decrypt(cryptkey, iv, enc);
+ 
+console.warn("encrypt length: ", enc.length);
+console.warn("encrypt in Base64:", enc);
+console.warn("decrypt all: " + dec);

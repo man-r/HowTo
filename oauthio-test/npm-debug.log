@@ -1,0 +1,147 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'oauthio' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose cache add [ 'oauthio', null ]
+5 verbose cache add name=undefined spec="oauthio" args=["oauthio",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'oauthio',
+6 verbose parsed url   path: 'oauthio',
+6 verbose parsed url   href: 'oauthio' }
+7 silly lockFile c3da8cf1-oauthio oauthio
+8 verbose lock oauthio /home/manar/.npm/c3da8cf1-oauthio.lock
+9 silly lockFile c3da8cf1-oauthio oauthio
+10 silly lockFile c3da8cf1-oauthio oauthio
+11 verbose addNamed [ 'oauthio', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 28d1b9fe-oauthio oauthio@
+14 verbose lock oauthio@ /home/manar/.npm/28d1b9fe-oauthio.lock
+15 silly addNameRange { name: 'oauthio', range: '*', hasData: false }
+16 verbose request where is /oauthio
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 7b4f2ee76fd3b2cb
+19 verbose url raw /oauthio
+20 verbose url resolving [ 'https://registry.npmjs.org/', './oauthio' ]
+21 verbose url resolved https://registry.npmjs.org/oauthio
+22 verbose request where is https://registry.npmjs.org/oauthio
+23 info trying registry request attempt 1 at 15:49:13
+24 http GET https://registry.npmjs.org/oauthio
+25 http 200 https://registry.npmjs.org/oauthio
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Wed, 28 Jan 2015 12:49:14 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"CF4QE5YSAYWXBEML7ANCSHFQJ"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '22354',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-fra1237-FRA',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1422449354.707504,VS0,VE198',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'oauthio', range: '*', hasData: true }
+28 silly addNameRange versions [ 'oauthio', [ '0.1.0', '0.1.1', '0.2.0', '0.2.1', '0.3.1' ] ]
+29 verbose addNamed [ 'oauthio', '0.3.1' ]
+30 verbose addNamed [ '0.3.1', '0.3.1' ]
+31 silly lockFile 5c9c6930-oauthio-0-3-1 oauthio@0.3.1
+32 verbose lock oauthio@0.3.1 /home/manar/.npm/5c9c6930-oauthio-0-3-1.lock
+33 silly lockFile 8e08fd42-js-org-oauthio-oauthio-0-3-1-tgz https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz
+34 verbose lock https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz /home/manar/.npm/8e08fd42-js-org-oauthio-oauthio-0-3-1-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz',
+35 verbose addRemoteTarball   '9709abad6f209d3fe583beb895668b303e6c742b' ]
+36 info retry fetch attempt 1 at 15:49:14
+37 verbose fetch to= /tmp/npm-22136-EqRJZS88/registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz
+38 http GET https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz
+39 http 200 https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz
+40 silly lockFile 8e08fd42-js-org-oauthio-oauthio-0-3-1-tgz https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz
+41 silly lockFile 8e08fd42-js-org-oauthio-oauthio-0-3-1-tgz https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz
+42 silly lockFile 5c9c6930-oauthio-0-3-1 oauthio@0.3.1
+43 silly lockFile 5c9c6930-oauthio-0-3-1 oauthio@0.3.1
+44 silly lockFile 28d1b9fe-oauthio oauthio@
+45 silly lockFile 28d1b9fe-oauthio oauthio@
+46 silly resolved [ { name: 'oauthio',
+46 silly resolved     version: '0.3.1',
+46 silly resolved     description: 'OAuth that just works ! This is the Node.js SDK for OAuth.io.',
+46 silly resolved     main: 'index.js',
+46 silly resolved     scripts: { test: 'istanbul cover jasmine-node tests/unit/spec' },
+46 silly resolved     author: { name: 'oauth.io' },
+46 silly resolved     license: 'Apache2',
+46 silly resolved     repository: { type: 'git', url: 'https://github.com/oauth-io/sdk-node.git' },
+46 silly resolved     devDependencies:
+46 silly resolved      { 'grunt-concurrent': '^0.5.0',
+46 silly resolved        'grunt-contrib-uglify': '^0.4.0',
+46 silly resolved        'grunt-contrib-watch': '^0.6.1',
+46 silly resolved        grunt: '^0.4.4',
+46 silly resolved        'grunt-contrib-coffee': '^0.10.1',
+46 silly resolved        rewire: '^2.0.0',
+46 silly resolved        nock: '^0.27.3',
+46 silly resolved        unwire: '0.0.4' },
+46 silly resolved     dependencies: { q: '^1.0.1', request: '^2.34.0' },
+46 silly resolved     bugs: { url: 'https://github.com/oauth-io/sdk-node/issues' },
+46 silly resolved     homepage: 'https://github.com/oauth-io/sdk-node',
+46 silly resolved     _id: 'oauthio@0.3.1',
+46 silly resolved     dist:
+46 silly resolved      { shasum: '9709abad6f209d3fe583beb895668b303e6c742b',
+46 silly resolved        tarball: 'http://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz' },
+46 silly resolved     _from: 'oauthio@',
+46 silly resolved     _npmVersion: '1.4.3',
+46 silly resolved     _npmUser: { name: 'webshell', email: 'team@webshell.io' },
+46 silly resolved     maintainers: [ [Object] ],
+46 silly resolved     directories: {},
+46 silly resolved     _shasum: '9709abad6f209d3fe583beb895668b303e6c742b',
+46 silly resolved     _resolved: 'https://registry.npmjs.org/oauthio/-/oauthio-0.3.1.tgz' } ]
+47 info install oauthio@0.3.1 into /usr/local/lib
+48 info installOne oauthio@0.3.1
+49 verbose lib/node_modules/oauthio unbuild
+50 verbose tar unpack /home/manar/.npm/oauthio/0.3.1/package.tgz
+51 silly lockFile c0b56bb0-r-local-lib-node-modules-oauthio tar:///usr/local/lib/node_modules/oauthio
+52 verbose lock tar:///usr/local/lib/node_modules/oauthio /home/manar/.npm/c0b56bb0-r-local-lib-node-modules-oauthio.lock
+53 silly lockFile b0266801-ar-npm-oauthio-0-3-1-package-tgz tar:///home/manar/.npm/oauthio/0.3.1/package.tgz
+54 verbose lock tar:///home/manar/.npm/oauthio/0.3.1/package.tgz /home/manar/.npm/b0266801-ar-npm-oauthio-0-3-1-package-tgz.lock
+55 silly gunzTarPerm modes [ '775', '664' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/oauthio'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/oauthio']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/oauthio',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/oauthio',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:108:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Linux 3.16.0-29-generic
+59 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "oauthio"
+60 error cwd /home/manar/gitHub/oauthio-test
+61 error node -v v0.10.35
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/oauthio
+64 error fstream_path /usr/local/lib/node_modules/oauthio
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/oauthio'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:108:15)
+71 verbose exit [ 3, true ]

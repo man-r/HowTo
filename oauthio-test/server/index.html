@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="demoapp">
+    <head>
+        <title>OAuth.io Tutorial</title>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="resources/icon.png">
+
+        <script src="../www/js/angular.js"></script>
+        <script>
+        var app = angular.module("demoapp", []);
+        app.controller("DemoController", [ "$scope","$http", function($scope, $http) {
+            var retrieve_token = function(callback) {
+                $http.get({
+                    url: "/oauth/token"
+                }).success(function(data, status, headers, config) {
+                    callback(null, data.token);
+                }).error(function(data, status, headers, config) {
+                    callback(data);
+                });
+            };
+
+            var authenticate = function (token, callback) {
+                OAuth.popup('google', {
+                    state: token
+                })
+                .done(function(r) {
+                    $http.get({
+                        url: "/oauth/signin",
+                        data: {
+                            code: r.code
+                        }
+                    }).success(function(data, status, headers, config) {
+                        callback(null, data);
+                    }).error(function(data, status, headers, config) {
+                        callback(data);
+                    });
+                })
+                .fail(function(e) {
+                    console.log(e);
+                });
+            };
+
+            var retrieve_user_info = function (callback) {
+                $http.post({
+                    url: "/me"
+                }).success(function(data, status, headers, config) {
+                    callback(data);
+                }).error(function(data, status, headers, config) {
+                    console.log(data);
+                });
+            };
+
+
+            $scope.google = function() {
+                var appKey = 'YH9GsEZnKvm62gSeqqh0OlcFHwY';
+                OAuth.initialize(appKey);
+
+                retrieve_token(function (err, token) {
+                    authenticate(token, function (err) {
+                        if (!err) {
+                            retrieve_user_info(function (user_data) {
+                                console.log(JSON.strigify(user_data));
+                            })
+                        }                        
+                    })
+                })
+            };
+        }]);
+   </script>
+    </head>
+    <body ng-controller="DemoController">
+        
+        <div class="page">
+            <div class="jumbotron">
+                <div class="container">
+                    <h3>OAuth.io server side tutorial with Node.js</h3>
+                    <p>
+                    This tutorial helps you understand how to integrate OAuth.io to your Node.js backend.
+                    </p>
+                    <div>
+                        <button ng-click="google()" class="btn btn-primary" id="login_button">Login</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3>Your profile</h3>
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <p>
+                                All this info is retrieved through your backend.
+                                </p>
+                                <p>
+                                <strong>Your name :</strong> <span id="name_box">Not retrieved yet</span>
+                                </p>
+                                <p>
+                                <strong>Your email :</strong> <span id="email_box">Not retrieved yet</span>
+                                </p>
+                            </div>
+                            <div class="col-xs-3">
+                                <a href="#" class="thumbnail">
+                                <img id="img_box" src="http://placehold.it/100x100" alt="...">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="src/oauth.js"></script>
+        <script src="src/background.js"></script>
+    </body>
+</html>

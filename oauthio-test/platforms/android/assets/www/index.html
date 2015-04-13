@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="demoapp">
+<head>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/angular.js"></script>
+    <script>
+        var app = angular.module("demoapp", []);
+        app.controller("DemoController", [ "$scope", function($scope) {
+            $scope.respond;
+            
+            
+            $scope.twitter = function() {
+                //Example with Twitter with the cache option enabled
+                OAuth.initialize("YH9GsEZnKvm62gSeqqh0OlcFHwY");
+                OAuth.popup('twitter', {cache: true})
+                .done(function(twitter) {
+                    //make API calls with `twitter`
+                    console.log(JSON.stringify(twitter));
+                    $scope.respond = JSON.stringify(twitter);
+                    twitter.me()
+                    .done(function(user_info) {
+                        console.log(JSON.stringify(user_info));
+                    })
+                    .fail(function(error) {
+                        console.log(error);
+                    });
+
+                }).fail(function(err) {
+                    //todo when the OAuth flow failed
+                    console.log(JSON.stringify(err));
+                });
+            };
+
+            $scope.facebook = function() {
+                var login_url = "https://www.facebook.com/dialog/oauth?client_id=712231042182932&redirect_uri=http://localhost:8000/gitHub/man-r.github.io/oauth2callback.html";
+                var ref = window.open(login_url, '_blank', 'location=yes');
+                // ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+                // ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+                // ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+                // ref.addEventListener('exit', function(event) { alert(event.type); });
+            };
+
+            $scope.google = function() {
+                //Example with Twitter with the cache option enabled
+                var login_url = "https://accounts.google.com/o/oauth2/auth?client_id=973017216606-dvdhkbjtgh73t289lij0f9jcf95keclg.apps.googleusercontent.com&redirect_uri=http://localhost:8000/gitHub/man-r.github.io/oauth2callback.html&response_type=token&scope=profile";
+                var ref = window.open(login_url, '_blank', 'location=yes');
+                // ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+                // ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+                // ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+                // ref.addEventListener('exit', function(event) { alert(event.type); });
+            };
+        }]);
+   </script>
+</head>
+<body ng-controller="DemoController">
+   <button ng-click="twitter()">twitter</button>
+   <button ng-click="google()">google</button>
+   <button ng-click="facebook()">facebook</button>
+   <p>{{respond}}</p>
+
+   <a href="http://stackoverflow.com/questions/11894506/ios-node-js-how-to-verify-passed-access-token">http://stackoverflow.com/questions/11894506/ios-node-js-how-to-verify-passed-access-token</a>
+   <br>
+   <a href="https://developers.google.com/accounts/docs/OAuth2UserAgent">https://developers.google.com/accounts/docs/OAuth2UserAgent</a>
+   
+  </body>
+</html>
